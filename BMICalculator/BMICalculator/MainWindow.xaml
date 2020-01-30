@@ -21,11 +21,11 @@
         <StackPanel Grid.Column="0" Margin="0,57,0,10" Grid.RowSpan="2">
             <Grid>
                 <TextBlock x:Name="WeightText" Padding="15" Height="Auto" Width="Auto" FontSize="20" HorizontalAlignment="Left">Enter Weight</TextBlock>
-                <TextBox HorizontalAlignment="Right" Text="0" TextAlignment="Right" BorderThickness="0" Height="30" Width="100"/>
+                <TextBox x:Name="WeightTextBox" HorizontalAlignment="Right" Text="0" TextAlignment="Right" BorderThickness="0" Height="30" Width="100"/>
             </Grid>
             <Grid>
                 <TextBlock x:Name="HeightText" Padding="15" Height="Auto" Width="Auto" FontSize="20" HorizontalAlignment="Left">Enter Weight</TextBlock>
-                <TextBox HorizontalAlignment="Right" Text="0" TextAlignment="Right" BorderThickness="0" Height="30" Width="100" />
+                <TextBox x:Name="HeightTextBox" HorizontalAlignment="Right" Text="0" TextAlignment="Right" BorderThickness="0" Height="30" Width="100" />
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -33,7 +33,7 @@
                     <ColumnDefinition Width="38*"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="CalculateButton" BorderThickness="0" Background="Snow" Padding="15" Height="Auto" Width="Auto" FontSize="20" HorizontalAlignment="Left" Content="Calculate" Click="CalculateButton_Click"/>
-                <TextBlock HorizontalAlignment="Right" Text="0" TextAlignment="Right" Background="Snow" Height="30" Width="100" Grid.Column="1" Margin="0,14,0,13" />
+                <TextBlock x:Name="CalculateTextBox" HorizontalAlignment="Right" Text="0" TextAlignment="Right" Background="Snow" Height="30" Width="100" Grid.Column="1" Margin="0,14,0,13" />
             </Grid>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1">
@@ -41,17 +41,10 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Meaning}"  Header="Meaning" Width="Auto"></GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <ListView ItemsSource="{Binding bmi}">
-                <ListView.View>
-                    <GridView>
                         <GridViewColumn Header="BMI" DisplayMemberBinding="{Binding BMI}" Width="Auto"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
         </StackPanel>
-
     </Grid>
 </Window>
