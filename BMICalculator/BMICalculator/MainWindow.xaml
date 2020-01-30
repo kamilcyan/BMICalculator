@@ -1,0 +1,51 @@
+﻿<Window x:Class="BMICalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BMICalculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Height="Auto" Width="Auto" FontSize="50" HorizontalAlignment="Center">Body Mass Index</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Margin="0,57,0,10" Grid.RowSpan="2">
+            <Grid>
+                <TextBlock x:Name="WeightText" Padding="15" Height="Auto" Width="Auto" FontSize="20" HorizontalAlignment="Left">Enter Weight</TextBlock>
+                <TextBox HorizontalAlignment="Right" Text="0" TextAlignment="Right" BorderThickness="0" Height="30" Width="100" TextChanged="TextBox_TextChanged" />
+            </Grid>
+            <Grid>
+                <TextBlock x:Name="HeightText" Padding="15" Height="Auto" Width="Auto" FontSize="20" HorizontalAlignment="Left">Enter Weight</TextBlock>
+                <TextBox HorizontalAlignment="Right" Text="0" TextAlignment="Right" BorderThickness="0" Height="30" Width="100" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="41*"/>
+                    <ColumnDefinition Width="38*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="CalculateButton" BorderThickness="0" Background="Snow" Padding="15" Height="Auto" Width="Auto" FontSize="20" HorizontalAlignment="Left" Content="Calculate" Click="CalculateButton_Click"/>
+                <TextBlock HorizontalAlignment="Right" Text="0" TextAlignment="Right" Background="Snow" Height="30" Width="100" Grid.Column="1" Margin="0,14,0,13" />
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <ListView ItemsSource="{Binding bmi}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Meaning}" Header="Meaning" Width="Auto"></GridViewColumn>
+                        <GridViewColumn Header="BMI" DisplayMemberBinding="{Binding BMI}" Width="Auto"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
+    </Grid>
+</Window>
