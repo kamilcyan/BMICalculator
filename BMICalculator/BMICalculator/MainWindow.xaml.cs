@@ -28,7 +28,7 @@ namespace BMICalculator
             InitializeComponent();
 
             bmi = new List<BMIModificator>();
-
+            dataGrid.ItemsSource = bmi;
             BMIModificator bmiMod1 = new BMIModificator();
             bmiMod1.Meaning = "Normal Weight";
             bmiMod1.BMI = "19-24.9";
@@ -57,19 +57,12 @@ namespace BMICalculator
             
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            double weightNumber = double.Parse(WeightTextBox.Text);
+            double heightNumber = double.Parse(HeightTextBox.Text);
+            double totalNumber = Math.Round((weightNumber / ((heightNumber / 100) * (heightNumber / 100))), 1);
+            CalculateTextBox.Text = totalNumber.ToString();
         }
     }
 }
